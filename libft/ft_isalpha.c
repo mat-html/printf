@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomatic <jomatic@student.42vienna.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 14:02:14 by jomatic           #+#    #+#             */
-/*   Updated: 2026/05/29 15:26:20 by jomatic          ###   ########.fr       */
+/*   Created: 2026/04/22 14:48:32 by jomatic           #+#    #+#             */
+/*   Updated: 2026/04/24 13:00:25 by jomatic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdargs.h>
-
-int	ft_printf(const char *, ...);
-
-#endif
+int	ft_isalpha(int i)
+{
+	if ((i <= 90 && i >= 65) || (i <= 122 && i >= 97))
+		return (1);
+	return (0);
+}

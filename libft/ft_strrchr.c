@@ -1,20 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomatic <jomatic@student.42vienna.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 14:02:14 by jomatic           #+#    #+#             */
-/*   Updated: 2026/05/29 15:26:20 by jomatic          ###   ########.fr       */
+/*   Created: 2026/05/13 12:04:04 by jomatic           #+#    #+#             */
+/*   Updated: 2026/05/13 12:04:05 by jomatic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdargs.h>
+char	*ft_strrchr(const char *s, int c)
+{
+	ssize_t	i;
 
-int	ft_printf(const char *, ...);
+	i = 0;
+	while (*s != '\0')
+	{
+		s++;
+		i++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	while (i >= 0)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		i--;
+		s--;
+	}
+	return (NULL);
+}
+/*
+int main ()
+{
+	const char s[] = "something to be displayed";
+	int c = 0;
 
-#endif
+	printf("%s", ft_strrchr(s, c));
+}*/

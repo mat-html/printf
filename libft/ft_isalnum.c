@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomatic <jomatic@student.42vienna.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 14:02:14 by jomatic           #+#    #+#             */
-/*   Updated: 2026/05/29 15:26:20 by jomatic          ###   ########.fr       */
+/*   Created: 2026/04/24 12:32:33 by jomatic           #+#    #+#             */
+/*   Updated: 2026/04/24 12:59:23 by jomatic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdargs.h>
+int	ft_isalnum(int c)
+{
+	if (('0' <= c && c <= '9')
+		|| ('a' <= c && c <= 'z')
+		|| ('A' <= c && c <= 'Z'))
+	{
+		return (1);
+	}
+	return (0);
+}
+/*
+int main (){
+	unsigned char c = '9';
 
-int	ft_printf(const char *, ...);
-
-#endif
+	return (ft_isalnum(c));
+	}
+	*/

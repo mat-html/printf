@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomatic <jomatic@student.42vienna.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 14:02:14 by jomatic           #+#    #+#             */
-/*   Updated: 2026/05/29 15:26:20 by jomatic          ###   ########.fr       */
+/*   Created: 2026/05/16 14:15:58 by jomatic           #+#    #+#             */
+/*   Updated: 2026/05/17 14:45:07 by jomatic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdargs.h>
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+/*
+int main()
+{
+	char c = 'c';
+	int fd = 0;
 
-int	ft_printf(const char *, ...);
-
-#endif
+	ft_putchar_fd(c, fd);
+}*/

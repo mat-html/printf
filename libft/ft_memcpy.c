@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomatic <jomatic@student.42vienna.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 14:00:30 by jomatic           #+#    #+#             */
-/*   Updated: 2026/05/29 15:46:43 by jomatic          ###   ########.fr       */
+/*   Created: 2026/05/13 11:41:12 by jomatic           #+#    #+#             */
+/*   Updated: 2026/05/13 11:41:16 by jomatic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_printf(const char *input, ...)
-{
-	va_list	args;
-	size_t i;
+#include "libft.h"
 
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t				i;
+	unsigned char		*d;
+	const unsigned char	*s;
+
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
 	i = 0;
-	va_start(args, input);
-	while (*input != '\0')
+	while (i < n)
 	{
-		if (*input = '%')
-		{
-			input++;
-			if (ft_strchr("cspdiuxX", *input))
-				i += check_arg(*input, va_args(arg, void *));
-			else if (*input == '%')
-				i += print_char(input, 1);
-		}
-		else
-			i += print_char(input, 1);
-		input++;
+		d[i] = s[i];
+		i++;
 	}
-	return (i);
+	return (dest);
 }
+/*
+int	main()
+{
+	char source[] = "something to be copied";
+	char dest[15];
+
+	ft_memcpy(dest, source, sizeof(char) * 14);
+	printf("dest: %s", dest);
+	return(0);
+}*/

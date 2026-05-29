@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomatic <jomatic@student.42vienna.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 14:02:14 by jomatic           #+#    #+#             */
-/*   Updated: 2026/05/29 15:26:20 by jomatic          ###   ########.fr       */
+/*   Created: 2026/04/24 13:16:33 by jomatic           #+#    #+#             */
+/*   Updated: 2026/05/13 12:58:22 by jomatic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
 
-# include <stdargs.h>
-
-int	ft_printf(const char *, ...);
-
-#endif
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+/*
+int main()
+{
+	char str[] = "something";
+	printf("%ld", ft_strlen(str));
+}*/

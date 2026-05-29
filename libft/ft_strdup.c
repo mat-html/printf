@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomatic <jomatic@student.42vienna.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 14:02:14 by jomatic           #+#    #+#             */
-/*   Updated: 2026/05/29 15:26:20 by jomatic          ###   ########.fr       */
+/*   Created: 2026/05/13 12:07:14 by jomatic           #+#    #+#             */
+/*   Updated: 2026/05/26 16:08:24 by jomatic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdargs.h>
+char	*ft_strdup(const char *s)
+{
+	char	*str;
+	size_t	i;
 
-int	ft_printf(const char *, ...);
+	i = 0;
+	str = malloc(ft_strlen(s) + 1);
+	while (s[i] != '\0')
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+/*
+int main ()
+{
+	const char *str = "something";
+	char *str_copie = ft_strdup(str);
 
-#endif
+	printf("%s", str_copie);
+	return (0);
+}*/

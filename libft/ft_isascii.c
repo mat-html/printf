@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomatic <jomatic@student.42vienna.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 14:02:14 by jomatic           #+#    #+#             */
-/*   Updated: 2026/05/29 15:26:20 by jomatic          ###   ########.fr       */
+/*   Created: 2026/04/24 13:09:35 by jomatic           #+#    #+#             */
+/*   Updated: 2026/04/24 13:14:22 by jomatic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdargs.h>
+int	ft_isascii(int i)
+{
+	if (i >= 0 && i <= 127)
+		return (1);
+	return (0);
+}
+/*
+int main ()
+{
+	unsigned char c = 'A';
 
-int	ft_printf(const char *, ...);
-
-#endif
+	return (ft_isascii(c));
+}
+*/

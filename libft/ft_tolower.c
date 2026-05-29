@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomatic <jomatic@student.42vienna.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 14:02:14 by jomatic           #+#    #+#             */
-/*   Updated: 2026/05/29 15:26:20 by jomatic          ###   ########.fr       */
+/*   Created: 2026/05/13 12:03:24 by jomatic           #+#    #+#             */
+/*   Updated: 2026/05/13 12:03:26 by jomatic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdargs.h>
+int	ft_tolower(int c)
+{
+	if (c > 64 && c < 91)
+		return (c + 32);
+	return (c);
+}
+/*
+int main ()
+{
+	int c = 70;
 
-int	ft_printf(const char *, ...);
-
-#endif
+	printf("%d", ft_tolower(c));
+}*/
