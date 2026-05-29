@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	check_args(const char *input, void *args)
+static int	check_args(const char *input, void *args)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	check_args(const char *input, void *args)
 	else if (input = 'i')
 		i += print_uns_numb((int)args);
 	else if (input = 'u')
-		i += print_int((unsigned int)args);
+		i += print_numb((unsigned int)args);
 	else if (input = 'x')
 		i += print_hex((int)args);
 	else if (input = 'X')
