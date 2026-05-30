@@ -10,9 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 #include "libftprintf.h"
 
-int	print_uns_numb(int	numb)
+int	print_uns_numb(unsigned int numb)
 {
+	int	len;
+
+	len = ft_putnbr_base(numb, "0123456789");
+	return (len);
 }

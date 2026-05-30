@@ -15,4 +15,11 @@
 
 int	print_string(char *str)
 {
+	int	len;
+
+	if (str == NULL)
+		str = "(null)";
+	len = ft_strlen(str);
+	write(1, str, len);
+	return (len);
 }

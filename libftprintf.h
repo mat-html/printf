@@ -13,14 +13,15 @@
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-# include <stdargs.h>
+#include <stdarg.h>
 
 int	ft_printf(const char *, ...);
 int	print_char(int c);
 int	print_string(char *str);
 int	print_adress(void *ptr);
 int	print_numb(int numb);
-int	print_uns_numb(int	numb);
-int	print_hex(int numb);
+int	print_uns_numb(unsigned int numb);
+int	print_hex(unsigned int numb);
+int ft_putnbr_base(unsigned long nbr, char *base);
 
 #endif

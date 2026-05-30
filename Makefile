@@ -13,10 +13,18 @@
 NAME = libftprintf.a
 LIBFTNAME = libft.a
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -I$(LIBFTDIR)
 LIBFTDIR = ./libft
 
 SRCS = 	ft_printf.c	\
+		print_char.c	\
+		print_string.c	\
+		print_numb.c	\
+		print_uns_numb.c	\
+		print_hex.c	\
+		print_adress.c	\
+		ft_putnbr_base.c
+
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -32,10 +40,10 @@ $(NAME): makelibft $(OBJS)
 clean:
 	@rm -f $(OBJS)
 	@cd $(LIBFTDIR) && make clean
-	
+
 fclean: clean
 	@rm -f $(NAME)
 	@cd $(LIBFTDIR) && make fclean
-	
+
 re: fclean all
 

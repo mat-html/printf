@@ -9,50 +9,51 @@
 /*   Updated: 2026/05/29 16:43:23 by jomatic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libftprintf.h"
+#include "libft/libft.h"
 
-static int	check_args(const char *input, void *args)
+static int	check_args(char spec, va_list *args)
 {
 	int	i;
 
 	i = 0;
-	if (input == 'c')
-		i += print_char((int)args);
-	else if (input = 's')
-		i += print_string((char *)args);
-	else if (input = 'p')
-		i += print_adress(args);
-	else if (input = 'd')
-		i += print_numb((int)args);
-	else if (input = 'i')
-		i += print_uns_numb((int)args);
-	else if (input = 'u')
-		i += print_numb((unsigned int)args);
-	else if (input = 'x')
-		i += print_hex((int)args);
-	else if (input = 'X')
-		i += print_hex((int)args);
+	if (spec == 'c')
+		i += print_char(va_arg(*args, int));
+	else if (spec == 's')
+		i += print_string(va_arg(*args, char *));
+	else if (spec == 'p')
+		i += print_adress(va_arg(*args, void *));
+	else if (spec == 'd' || spec == 'i')
+		i += print_numb(va_arg(*args, int));
+	else if (spec == 'u')
+		i += print_uns_numb(va_arg(*args, unsigned int));
+	else if (spec == 'x' || spec == 'X')
+		i += print_hex(va_arg(*args, unsigned int));
 	return (i);
 }
 int	ft_printf(const char *input, ...)
 {
 	va_list	args;
-	size_t i;
+	int i;
 
 	i = 0;
 	va_start(args, input);
 	while (*input != '\0')
 	{
-		if (*input = '%')
+		if (*input == '%')
 		{
 			input++;
-			if (ft_strchr("cspdiuxX", *input))
-				i += check_arg(*input, va_args(args, void *));
-			else if (*input == '%')
-				i += print_char(input, 1);
+			if (*input == '\0')
+				break ;
+			if (*input == '%')
+				i += print_char('%');
+			else if (ft_strchr("cspdiuxX", *input))
+				i += check_args(*input, &args);
 		}
 		else
-			i += print_char(input, 1);
+			i += print_char(*input);
 		input++;
 	}
+	va_end(args);
 	return (i);
 }

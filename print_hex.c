@@ -13,6 +13,10 @@
 #include "libft.h"
 #include "libftprintf.h"
 
-int	print_hex(int numb)
+int	print_hex(unsigned int numb)
 {
+	int	len;
+
+	len = ft_putnbr_base(numb, "0123456789abcdef");
+	return (len);
 }
