@@ -21,7 +21,7 @@ int	print_string(char *str);
 int	print_adress(void *ptr);
 int	print_numb(int numb);
 int	print_uns_numb(unsigned int numb);
-int	print_hex(unsigned int numb);
+int	print_hex(unsigned int numb, char spec);
 int ft_putnbr_base(unsigned long nbr, char *base);
 
 #endif

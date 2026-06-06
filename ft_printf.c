@@ -28,7 +28,7 @@ static int	check_args(char spec, va_list *args)
 	else if (spec == 'u')
 		i += print_uns_numb(va_arg(*args, unsigned int));
 	else if (spec == 'x' || spec == 'X')
-		i += print_hex(va_arg(*args, unsigned int));
+		i += print_hex(va_arg(*args, unsigned int), spec);
 	return (i);
 }
 int	ft_printf(const char *input, ...)
