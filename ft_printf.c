@@ -6,7 +6,7 @@
 /*   By: jomatic <jomatic@student.42vienna.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 14:00:30 by jomatic           #+#    #+#             */
-/*   Updated: 2026/05/29 16:43:23 by jomatic          ###   ########.fr       */
+/*   Updated: 2026/07/03 17:36:05 by jomatic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libftprintf.h"
@@ -31,10 +31,11 @@ static int	check_args(char spec, va_list *args)
 		i += print_hex(va_arg(*args, unsigned int), spec);
 	return (i);
 }
+
 int	ft_printf(const char *input, ...)
 {
 	va_list	args;
-	int i;
+	int		i;
 
 	i = 0;
 	va_start(args, input);
