@@ -9,11 +9,12 @@
 #    Updated: 2026/05/29 15:04:27 by jomatic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+.PHONY: all clean fclean re
 
 NAME = libftprintf.a
 LIBFTNAME = libft.a
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -I$(LIBFTDIR)
+CFLAGS = -Wall -Werror -Wextra
 LIBFTDIR = ./libft
 
 SRCS = 	ft_printf.c	\
@@ -25,25 +26,31 @@ SRCS = 	ft_printf.c	\
 		print_adress.c	\
 		ft_putnbr_base.c
 
+HEADER = libftprintf.h
+
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-makelibft:
-	@make -C $(LIBFTDIR)
-	@cp $(LIBFTDIR)/$(LIBFTNAME) .
-	@mv $(LIBFTNAME) $(NAME)
+$(OBJS): $(HEADER)
 
-$(NAME): makelibft $(OBJS)
-	@ar -r $(NAME) $(OBJS)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(LIBFTDIR)/$(LIBFTNAME):
+	$(MAKE) -C $(LIBFTDIR)
+
+$(NAME): $(LIBFTDIR)/$(LIBFTNAME) $(OBJS)
+	 cp $(LIBFTDIR)/$(LIBFTNAME) $(NAME) 
+	 ar rcs $(NAME) $(OBJS)
 
 clean:
-	@rm -f $(OBJS)
-	@cd $(LIBFTDIR) && make clean
+	rm -f $(OBJS)
+	$(MAKE) -C $(LIBFTDIR) clean
 
 fclean: clean
-	@rm -f $(NAME)
-	@cd $(LIBFTDIR) && make fclean
+	rm -f $(NAME)
+	$(MAKE) -C $(LIBFTDIR) fclean
 
 re: fclean all
 
